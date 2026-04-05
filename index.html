@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS AGENCY | Advanced Strategic Solutions</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        :root {
+            --nexus-red: #ff0033;
+            --oracle-navy: #000c18;
+            --accent: var(--nexus-red);
+            --glass: rgba(255, 255, 255, 0.02);
+            --border: rgba(255, 0, 51, 0.2);
+        }
+
+        body {
+            background-color: var(--oracle-navy);
+            color: #fff;
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex; flex-direction: column;
+            align-items: center; min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Access Protocol Modal */
+        #access-modal {
+            position: fixed; inset: 0; background: rgba(0, 8, 16, 0.98);
+            z-index: 10000; display: flex; justify-content: center; align-items: center;
+            backdrop-filter: blur(12px);
+        }
+        .modal-box {
+            border-top: 4px solid var(--accent); padding: 50px; text-align: center;
+            background: #050505; max-width: 600px; width: 90%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            width: 100%; padding: 60px 0; text-align: center;
+            border-bottom: 1px solid var(--border); background: #080808;
+            position: relative;
+        }
+
+        #uptime-display {
+            position: absolute; top: 15px; right: 25px;
+            font-family: monospace; font-size: 10px; color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        h1 { letter-spacing: 18px; text-transform: uppercase; font-size: 2.2rem; font-weight: 300; margin: 0; }
+        h1 span { font-weight: 900; color: var(--accent); }
+
+        .container { max-width: 1100px; width: 90%; padding: 60px 0; }
+
+        /* About Section */
+        .about-section {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border);
+            padding: 40px; margin-bottom: 60px; display: flex; gap: 40px;
+            align-items: center; border-radius: 8px; border-left: 5px solid var(--accent);
+        }
+        .profile-icon {
+            width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; font-weight: 900; color: var(--accent); background: #111; flex-shrink: 0;
+        }
+        
+        .about-text h2 { margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 3px; font-size: 1.1rem; }
+        .about-text p { color: #ccc; line-height: 1.7; margin: 0; font-size: 1rem; }
+        .highlight { color: var(--accent); font-weight: 700; }
+
+        .social-links { margin-top: 20px; display: flex; gap: 20px; }
+        .social-links a { color: #888; font-size: 1.5rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--accent); transform: scale(1.1); }
+
+        /* Project Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card {
+            background: var(--glass); border: 1px solid var(--border); padding: 40px;
+            transition: 0.3s ease; text-decoration: none; color: inherit; border-radius: 4px;
+            display: flex; flex-direction: column;
+        }
+        .project-card:hover { background: rgba(255, 0, 51, 0.05); transform: translateY(-5px); border-color: var(--accent); }
+        
+        .label { font-size: 9px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 800; }
+        .btn-action {
+            display: inline-block; margin-top: auto; padding: 10px 25px;
+            background: var(--accent); color: #fff; font-weight: 700; font-size: 10px;
+            text-transform: uppercase; letter-spacing: 2px; text-align: center;
+        }
+
+        /* Live System Log */
+        #system-log {
+            width: 100%; background: #000; padding: 15px; border-top: 1px solid var(--border);
+            font-family: monospace; font-size: 10px; color: #444; height: 60px; overflow: hidden;
+        }
+        .log-line { animation: scrollLog 25s linear infinite; }
+        @keyframes scrollLog { from { transform: translateY(0); } to { transform: translateY(-100%); } }
+    </style>
+</head>
+<body>
+
+    <!-- Access Protocol Modal -->
+    <div id="access-modal">
+        <div class="modal-box">
+            <h2 style="color: var(--accent); letter-spacing: 6px; margin-bottom: 25px;">ACCESS PROTOCOL</h2>
+            <p style="font-size: 0.95rem; line-height: 1.8; margin-bottom: 35px; color: #bbb;">
+                Nexus Agency maintains high expectations. This terminal is <strong>engineered to be incompatible with educational Chromebook hardware.</strong>
+                <br><br>
+                We believe <span class="highlight">games and academia co-exist</span> best when prioritized for the correct environment. Access is restricted to residential high-performance zones.
+            </p>
+            <button onclick="document.getElementById('access-modal').style.display='none'" 
+                style="background: var(--accent); color: white; border: none; padding: 15px 40px; cursor: pointer; font-weight: 900; letter-spacing: 3px; text-transform: uppercase;">
+                I CONCUR // ENTER HUB
+            </button>
+        </div>
+    </div>
+
+    <header>
+        <div id="uptime-display">SYSTEM_UPTIME: 00:00:00</div>
+        <h1>NEXUS <span>AGENCY</span></h1>
+        <div style="font-size: 10px; color: #555; margin-top: 15px; letter-spacing: 5px;">STRATEGIC INFRASTRUCTURE // V.2.2.0</div>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Section -->
+        <div class="about-section">
+            <div class="profile-icon">R</div>
+            <div class="about-text">
+                <h2>Hi, I'm Rehaan Thakkar</h2>
+                <p>
+                    I'm a developer fueled by <span class="highlight">F1 engineering</span> and the laws of <span class="highlight">Physics</span>. 
+                    I build high-stakes systems where precision meets rapid deployment. 
+                    Welcome to the Nexus hub—where speed and clean code live side-by-side.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 30px; border-left: 2px solid var(--accent); padding-left: 15px;">
+            <span class="label">Operational Assets</span>
+        </div>
+
+        <div class="grid">
+            <a href="https://github.io" class="project-card" target="_blank">
+                <span class="label">Asset 01 // ORACLE</span>
+                <h3>Oracle Intelligence Hub</h3>
+                <p style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">Strategic AI terminal. Requires personal OpenRouter API Key.</p>
+                <div class="btn-action">Authorize (33c)</div>
+            </a>
+
+            <a href="https://github.io" class="project-card" target="_blank">
+                <span class="label">Asset 02 // NEXUS AI</span>
+                <h3>Nexus Neural Hub</h3>
+                <p style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">Neural strategy terminal. Requires personal OpenRouter API Key.</p>
+                <div class="btn-action">Authorize (20c)</div>
+            </a>
+
+            <a href="https://github.io" class="project-card" target="_blank">
+                <span class="label">Asset 03 // GAMES</span>
+                <h3>Nexus Game Terminal</h3>
+                <p style="color: #888; font-size: 0.9rem; margin-bottom: 20px;">High-performance entertainment module for off-duty hours.</p>
+                <div class="btn-action">Unlock (simplylovely)</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Live System Log -->
+    <div id="system-log">
+        <div class="log-line">
+            [SYS] INITIALIZING BOOT SEQUENCE... OK<br>
+            [NET] UPLINK: Rehaan33 DETECTED...<br>
+            [SEC] CLEARANCE CODES: 20c, 33c, simplylovely VALIDATED...<br>
+            [WARN] CHROMEBOOK HARDWARE DETECTED: ACCESS_DENIED<br>
+            [SYS] HUB_STANDBY_MODE_ACTIVE...<br>
+            [DATA] SYNCING: rehaan-33.github.io/nexus-games/...<br>
+            [DATA] SYNCING: rehaan-33.github.io/nexus-ai/...<br>
+            [DATA] SYNCING: rehaan-33.github.io/oracle-ai/...
+        </div>
+    </div>
+
+    <footer style="padding: 40px; font-size: 9px; color: #333; letter-spacing: 4px; text-align: center;">
+        © 2026 REHAAN THAKKAR // NEXUS AGENCY // AEROSPACE GRADE INFRASTRUCTURE
+    </footer>
+
+    <script>
+        // System Uptime Logic
+        let seconds = 0;
+        setInterval(() => {
+            seconds++;
+            let hrs = Math.floor(seconds / 3600).toString().padStart(2, '0');
+            let mins = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+            let secs = (seconds % 60).toString().padStart(2, '0');
+            document.getElementById('uptime-display').innerText = `SYSTEM_UPTIME: ${hrs}:${mins}:${secs}`;
+        }, 1000);
+    </script>
+
+</body>
+</html>
